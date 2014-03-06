@@ -2,10 +2,12 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', []).
-  controller('MyCtrl1', [function() {
+angular.module('F1Feed.controllers', []).controller('DriversCtrl', function($scope, ergastAPIservice)
+{
+  $scope.nameFilter = null;
+  $scope.driversList = [];
 
-  }])
-  .controller('MyCtrl2', [function() {
-
-  }]);
+  ergastAPIservice.getDrivers().success(function (response) {
+      $scope.driversList = response.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+  });
+});

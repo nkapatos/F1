@@ -1,16 +1,14 @@
 'use strict';
 
-
 // Declare app level module which depends on filters, and services
-angular.module('myApp', [
+angular.module('F1Feed', [
   'ngRoute',
-  'myApp.filters',
-  'myApp.services',
-  'myApp.directives',
-  'myApp.controllers'
+  'F1Feed.controllers',
+  'F1Feed.services'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'MyCtrl1'});
-  $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl2'});
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.when('/seasons', {templateUrl: 'partials/seasons.tpl.html', controller: 'SeasonsCtrl'});
+  $routeProvider.when('/drivers', {templateUrl: 'partials/drivers.tpl.html', controller: 'DriversCtrl'});
+  $routeProvider.when('/results', {templateUrl: 'partials/results.tpl.html', controller: 'ResultsCtrl'});
+  $routeProvider.otherwise({redirectTo: '/seasons'});
 }]);

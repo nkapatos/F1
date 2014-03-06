@@ -1,1 +1,17 @@
-<p>This is the partial for view 1.</p>
+<table class='table'>
+  <thead>
+    <tr class="table-heading">
+      <th>#</th><th>Driver</th><th>Nationality</th><th>Wins</th><th>Points</th><th>Team</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="driver in driversList">
+      <td>{{$index + 1}}</td>
+      <td>{{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}</td>
+      <td>{{driver.Driver.nationality}}</td>
+      <td>{{driver.wins}}</td>
+      <td>{{driver.points}}</td>
+      <td>{{driver.Constructors[0].name}}</td>
+    </tr>
+  </tbody>
+</table>
