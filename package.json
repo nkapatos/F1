@@ -1,8 +1,29 @@
 {
-  "name": "angularjs-seed",
-  "description": "A starter project for AngularJS",
-  "repository": "https://github.com/angular/angular-seed",
+  "name": "F1",
+  "version": "0.1.0",
+  "description": "Formula 1 History data feed from egstar & live timing data from formula1.com feed",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PixelVibe/F1"
+  },
+  "keywords": [
+    "F1",
+    "AngularJS",
+    "SPA"
+  ],
+  "author": "Nikos Kapatos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PixelVibe/F1/issues"
+  },
+  "homepage": "https://github.com/PixelVibe/F1",
   "devDependencies": {
+    "grunt": "^0.4.2",
+    "grunt-processhtml": "^0.3.0",
     "phantomjs" : "~1.9",
     "karma" : "~0.10",
     "karma-junit-reporter" : "~0.1",
