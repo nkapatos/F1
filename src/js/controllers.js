@@ -14,6 +14,9 @@ angular.module('F1Feed.controllers', [])
 
   ergastAPIservice.getStandings(year, round, standingsFor).success(function (response)
   {
+    if (standingsFor === 'driver')
       $scope.StandingsList = response.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+    else
+      $scope.StandingsList = response.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
   });
 });

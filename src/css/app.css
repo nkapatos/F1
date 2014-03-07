@@ -1,3 +1,7 @@
-/* Drivers List
+/* Navigation
+================== */
+.dropdown-toggle {cursor: pointer;}
+
+/* Standings List
 =================================== */
-.drivers-nationality img {width: 30px;}
+.drivers-nationality img, .constructor-nationality img {width: 30px;}

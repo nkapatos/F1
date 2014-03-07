@@ -21,7 +21,11 @@ config(['$routeProvider', function($routeProvider)
     templateUrl: function(params) { return 'partials/' + params.standingsFor + 'Standings.tpl.html' }
   });
 
-  $routeProvider.when('/standings/:year/:round/:standingsFor', {templateUrl: 'partials/driverStandings.tpl.html', controller: 'DriverStandingsCtrl'});
+  $routeProvider.when('/standings/:year/:round/:standingsFor',
+  {
+    controller: 'StandingsCtrl',
+    templateUrl: function(params) { return 'partials/' + params.standingsFor + 'Standings.tpl.html' }
+  });
 
   $routeProvider.when('/seasons', {templateUrl: 'partials/seasons.tpl.html', controller: 'SeasonsCtrl'});
   $routeProvider.when('/results', {templateUrl: 'partials/results.tpl.html', controller: 'ResultsCtrl'});
