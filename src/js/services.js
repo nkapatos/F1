@@ -5,7 +5,7 @@ angular.module('F1Feed.services', []).factory('ergastAPIservice', function($http
 {
   var ergastAPI = {};
 
-  ergastAPI.getStandings = function(year,round,standingsFor)
+  ergastAPI.getStandings = function(year, round, standingsFor)
   {
 
     if (!round)
@@ -17,7 +17,23 @@ angular.module('F1Feed.services', []).factory('ergastAPIservice', function($http
       method: 'JSONP',
       url: theUrl
     });
-  }
+  };
+
+  ergastAPI.getConstructors = function(year, constructor_id, filter)
+  {
+
+    if (!constructor_id)
+      var theUrl = 'http://ergast.com/api/f1/'+year+'/constructors.json?callback=JSON_CALLBACK';
+    else if(!filter)
+      var theUrl = 'http://ergast.com/api/f1/'+year+'/constructors/'+constructor_id+'/status.json?callback=JSON_CALLBACK';
+    else
+      var theUrl = 'http://ergast.com/api/f1/'+year+'/constructors/'+constructor_id+'/'+filter+'.json?callback=JSON_CALLBACK';
+
+    return $http({
+      method: 'JSONP',
+      url: theUrl
+    });
+  };
 
   return ergastAPI;
 });

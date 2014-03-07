@@ -27,7 +27,34 @@ config(['$routeProvider', function($routeProvider)
     templateUrl: function(params) { return 'partials/' + params.standingsFor + 'Standings.tpl.html' }
   });
 
-  $routeProvider.when('/seasons', {templateUrl: 'partials/seasons.tpl.html', controller: 'SeasonsCtrl'});
-  $routeProvider.when('/results', {templateUrl: 'partials/results.tpl.html', controller: 'ResultsCtrl'});
-  $routeProvider.otherwise({redirectTo: '/seasons'});
+  /*
+    Get Constructors
+    Structure = /year/constructors
+              = /year/constructor/constructor_id
+              = /year/constructor/constructor_id/circuits
+              = /year/constructor/constructor_id/drivers
+              = /year/constructor/constructor_id/grid
+              = /year/constructor/constructor_id/results
+              = /year/constructor/constructor_id/fastest
+              = /year/constructor/constructor_id/status
+  */
+  $routeProvider.when('/:year/constructors',
+  {
+    controller: 'ConstructorsCtrl',
+    templateUrl: 'partials/constructorsList.tpl.html'
+  });
+
+  $routeProvider.when('/:year/constructor/:constructor_id',
+  {
+    controller: 'ConstructorsCtrl',
+    templateUrl: 'partials/constructorDetails.tpl.html'
+  });
+
+  $routeProvider.when('/:year/constructor/:constructor_id/:filter',
+  {
+    controller: 'ConstructorsCtrl',
+    templateUrl: 'partials/constructorDetails.tpl.html'
+  });
+
+  $routeProvider.otherwise({redirectTo: '/'});
 }]);
