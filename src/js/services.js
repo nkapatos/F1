@@ -1,15 +1,21 @@
 'use strict';
 
 /* Services */
-angular.module('F1Feed.services', []).
-factory('ergastAPIservice', function($http) {
-
+angular.module('F1Feed.services', []).factory('ergastAPIservice', function($http)
+{
   var ergastAPI = {};
 
-  ergastAPI.getDrivers = function() {
+  ergastAPI.getStandings = function(year,round,standingsFor)
+  {
+
+    if (!round)
+      var theUrl = 'http://ergast.com/api/f1/'+year+'/'+standingsFor+'Standings.json?callback=JSON_CALLBACK'
+    else
+      var theUrl = 'http://ergast.com/api/f1/'+year+'/'+round+'/'+standingsFor+'Standings.json?callback=JSON_CALLBACK'
+
     return $http({
-      method: 'JSONP', 
-      url: 'http://ergast.com/api/f1/current/driverStandings.json?callback=JSON_CALLBACK'
+      method: 'JSONP',
+      url: theUrl
     });
   }
 

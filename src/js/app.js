@@ -6,9 +6,24 @@ angular.module('F1Feed', [
   'F1Feed.controllers',
   'F1Feed.services'
 ]).
-config(['$routeProvider', function($routeProvider) {
+config(['$routeProvider', function($routeProvider)
+{
+  /*
+    Get Standings
+    Structure = /year/round/standingsfor
+              = /2008/5/driverStanding
+              = /2009/constructorStandings
+              = /current/6/driverStandings
+  */
+  $routeProvider.when('/standings/:year/:standingsFor',
+  {
+    controller: 'StandingsCtrl',
+    templateUrl: function(params) { return 'partials/' + params.standingsFor + 'Standings.tpl.html' }
+  });
+
+  $routeProvider.when('/standings/:year/:round/:standingsFor', {templateUrl: 'partials/driverStandings.tpl.html', controller: 'DriverStandingsCtrl'});
+
   $routeProvider.when('/seasons', {templateUrl: 'partials/seasons.tpl.html', controller: 'SeasonsCtrl'});
-  $routeProvider.when('/drivers', {templateUrl: 'partials/drivers.tpl.html', controller: 'DriversCtrl'});
   $routeProvider.when('/results', {templateUrl: 'partials/results.tpl.html', controller: 'ResultsCtrl'});
   $routeProvider.otherwise({redirectTo: '/seasons'});
 }]);

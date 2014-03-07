@@ -2,12 +2,18 @@
 
 /* Controllers */
 
-angular.module('F1Feed.controllers', []).controller('DriversCtrl', function($scope, ergastAPIservice)
+angular.module('F1Feed.controllers', []) 
+.controller('StandingsCtrl', function($scope, ergastAPIservice, $routeParams)
 {
-  $scope.nameFilter = null;
-  $scope.driversList = [];
+  $scope.StandingsList = [];
+  $scope.$routeParams        = $routeParams;
 
-  ergastAPIservice.getDrivers().success(function (response) {
-      $scope.driversList = response.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+  var year         = $routeParams.year,
+      round        = $routeParams.round,
+      standingsFor = $routeParams.standingsFor;
+
+  ergastAPIservice.getStandings(year, round, standingsFor).success(function (response)
+  {
+      $scope.StandingsList = response.MRData.StandingsTable.StandingsLists[0].DriverStandings;
   });
 });
