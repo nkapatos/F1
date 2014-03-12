@@ -22,48 +22,23 @@
 
         <script src="lib/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
-    <body ng-app="F1Feed">
+    <body ng-app="F1Feed" ng-controller="MainCtrl">
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">F1 Data</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown">Standings <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#/standings/current/driver">Drivers</a></li>
-                <li><a href="#/standings/current/constructor">Constructors</a></li>
-              </ul>
-            </li>
-            <li><a href="#/current/drivers">Drivers</a></li>
-            <li><a href="#/current/constructors">Constructors</a></li>
-            <li><a href="#/2014/circuits">Circuits</a></li>
-            <li><a href="#/2014/schedule">Race Schedule</a></li>
-          </ul>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </div>
+
+    <div ng-include="'partials/main-navigation.tpl.html'"></div> <!-- main navigation -->
 
     <div class="container">
 
       <div class="row">
-        <div ng-view></div>
+        <div ng-view></div> <!-- content loads here -->
       </div>
 
       <hr>
 
       <footer>
-        <p>&copy; PixelVibe 2014</p>
+        <p>&copy; PixelVibe {{currentYear}}</p>
       </footer>
     </div> <!-- /container -->
 

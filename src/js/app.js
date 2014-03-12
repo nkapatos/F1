@@ -5,11 +5,13 @@ angular.module('F1Feed', [
   'ngRoute',
   'F1Feed.controllers',
   'F1Feed.services'
-]).
-config(['$routeProvider', function($routeProvider)
+]);
+
+// Routes Configuration
+angular.module('F1Feed').config(['$routeProvider', function($routeProvider)
 {
   /*
-    Get Standings
+    route patterns for Standings
     Structure = /year/round/standingsfor
               = /2008/5/driverStanding
               = /2009/constructorStandings
@@ -17,18 +19,18 @@ config(['$routeProvider', function($routeProvider)
   */
   $routeProvider.when('/standings/:year/:standingsFor',
   {
-    controller: 'StandingsCtrl',
+    controller:  'StandingsCtrl',
     templateUrl: function(params) { return 'partials/' + params.standingsFor + 'Standings.tpl.html' }
   });
 
   $routeProvider.when('/standings/:year/:round/:standingsFor',
   {
-    controller: 'StandingsCtrl',
+    controller:  'StandingsCtrl',
     templateUrl: function(params) { return 'partials/' + params.standingsFor + 'Standings.tpl.html' }
   });
 
   /*
-    Get Constructors
+    Route patterns for Constructors
     Structure = /year/constructors
               = /year/constructor/constructor_id
               = /year/constructor/constructor_id/circuits
@@ -40,21 +42,27 @@ config(['$routeProvider', function($routeProvider)
   */
   $routeProvider.when('/:year/constructors',
   {
-    controller: 'ConstructorsCtrl',
+    controller:  'ConstructorsCtrl',
     templateUrl: 'partials/constructorsList.tpl.html'
   });
 
   $routeProvider.when('/:year/constructor/:constructor_id',
   {
-    controller: 'ConstructorsCtrl',
+    controller:  'ConstructorsCtrl',
     templateUrl: 'partials/constructorDetails.tpl.html'
   });
 
   $routeProvider.when('/:year/constructor/:constructor_id/:filter',
   {
-    controller: 'ConstructorsCtrl',
+    controller:  'ConstructorsCtrl',
     templateUrl: 'partials/constructorDetails.tpl.html'
   });
+
+  $routeProvider.when('/info/:year/drivers',
+  {
+    controller:  'DriversCtrl',
+    templateUrl: 'partials/drivers.tpl.html'
+  })
 
   $routeProvider.otherwise({redirectTo: '/'});
 }]);
