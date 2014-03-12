@@ -64,5 +64,11 @@ angular.module('F1Feed').config(['$routeProvider', function($routeProvider)
     templateUrl: 'partials/drivers.tpl.html'
   })
 
+  $routeProvider.when('/info/:year/circuits',
+  {
+    controller:  'CircuitsCtrl',
+    templateUrl: 'partials/circuits.tpl.html'
+  })
+
   $routeProvider.otherwise({redirectTo: '/'});
 }]);

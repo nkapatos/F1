@@ -112,36 +112,34 @@ angular.module('F1Feed.controllers', [])
   })
   .controller('DriversCtrl', function($scope, ergastAPIservice, $routeParams)
   {
-    $scope.StandingsList = [];
+    $scope.DriversList = [];
     $scope.$routeParams  = $routeParams;
 
     var year         = $routeParams.year,
         round        = $routeParams.round,
         standingsFor = $routeParams.standingsFor;
 
-    ergastAPIservice.getStandings(year, round, standingsFor).success(function (response)
+    ergastAPIservice.getDrivers(year).success(function (response)
     {
-      if (standingsFor === 'driver')
-        $scope.StandingsList = response.MRData.StandingsTable.StandingsLists[0].DriverStandings;
-      else
-        $scope.StandingsList = response.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
+      
+        $scope.DriversList = response.MRData.DriverTable.Drivers;
+      
     });
   })
   .controller('CircuitsCtrl', function($scope, ergastAPIservice, $routeParams)
   {
-    $scope.StandingsList = [];
+    $scope.CircuitsList = [];
     $scope.$routeParams  = $routeParams;
 
     var year         = $routeParams.year,
         round        = $routeParams.round,
         standingsFor = $routeParams.standingsFor;
 
-    ergastAPIservice.getStandings(year, round, standingsFor).success(function (response)
+    ergastAPIservice.getCircuits(year).success(function (response)
     {
-      if (standingsFor === 'driver')
-        $scope.StandingsList = response.MRData.StandingsTable.StandingsLists[0].DriverStandings;
-      else
-        $scope.StandingsList = response.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
+
+        $scope.CircuitsList = response.MRData.CircuitTable.Circuits;
+        console.log($scope.CircuitsList);
     });
   })
   .controller('RaceScheduleCtrl', function($scope, ergastAPIservice, $routeParams)

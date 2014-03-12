@@ -35,5 +35,28 @@ angular.module('F1Feed.services', []).factory('ergastAPIservice', function($http
     });
   };
 
+  ergastAPI.getDrivers = function(year)
+  {
+
+    var theUrl = 'http://ergast.com/api/f1/'+year+'/drivers.json?callback=JSON_CALLBACK';
+
+    return $http({
+      method: 'JSONP',
+      url: theUrl
+    });
+  };
+
+  ergastAPI.getCircuits = function(year)
+  {
+
+    var theUrl = 'http://ergast.com/api/f1/'+year+'/circuits.json?callback=JSON_CALLBACK';
+
+    return $http({
+      method: 'JSONP',
+      url: theUrl
+    });
+  };
+
   return ergastAPI;
+
 });
