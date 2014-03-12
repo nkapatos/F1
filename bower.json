@@ -1,0 +1,22 @@
+{
+  "name": "F1",
+  "version": "0.1.0",
+  "homepage": "https://github.com/PixelVibe/F1",
+  "description": "F1",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ionic": "~0.9.26",
+    "bootstrap": "~3.1.1"
+  }
+}
