@@ -18,5 +18,8 @@
   "dependencies": {
     "ionic": "~0.9.26",
     "bootstrap": "~3.1.1"
+  },
+  "devDependencies": {
+    "angular-route": "~1.2.14"
   }
 }
