@@ -21,6 +21,7 @@
     - DriversCtrl
     - CircuitsCtrl
     - RaceScheduleCtrl
+    - DashboardCtrl
 
 */
 
@@ -76,7 +77,7 @@ angular.module('F1Feed.controllers', [])
     ergastAPIservice.getConstructors(year, constructor_id, filter).success(function (response)
     {
       if (!constructor_id)
-        $scope.ConstructorsList = response.MRData.ConstructorTable.Constructors;
+        $scope.ConstructorsList = ConstructorsList = response.MRData.ConstructorTable.Constructors;
       
       if(constructor_id)
       {
@@ -85,7 +86,7 @@ angular.module('F1Feed.controllers', [])
         switch (filter)
         {
           case 'circuits':
-            $scope.ConstructorsList = response.MRData.CircuitTable.Circuits;
+            $scope.ConstructorsList = ConstructorsList = response.MRData.CircuitTable.Circuits;
             break;
 
           case 'drivers':
@@ -142,7 +143,7 @@ angular.module('F1Feed.controllers', [])
     {
 
         $scope.CircuitsList = response.MRData.CircuitTable.Circuits;
-        console.log($scope.CircuitsList);
+        
     });
   })
   .controller('RaceScheduleCtrl', function($scope, ergastAPIservice, $routeParams)

@@ -5,6 +5,9 @@
 	Temporary solution for cleaner app code...
 
 */
-var StandingsList = [];
+var StandingsList    = [],
+    ConstructorsList = [],
+    DriversList      = [],
+    CircuitsList     = [];
 
-console.log(typeof StandingsList)
+var nextEvent;

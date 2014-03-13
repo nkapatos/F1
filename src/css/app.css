@@ -1,7 +1,94 @@
+html, body
+{
+  height: 100%;
+}
+
+/* Fonts
+=============*/
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700);
+
+/* Body
+=============*/
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+body
+{
+  font-family: 'Open Sans', sans-serif;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPHJhZGlhbEdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNzUlIj4KICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNhN2NmZGYiIHN0b3Atb3BhY2l0eT0iMC4yIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyMzUzOGEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvcmFkaWFsR3JhZGllbnQ+CiAgPHJlY3QgeD0iLTUwIiB5PSItNTAiIHdpZHRoPSIxMDEiIGhlaWdodD0iMTAxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+  background: -moz-radial-gradient(farthest-side at 10% 0, ellipse cover,  rgba(69,72,77,0.94) 0%, rgba(0,0,0,0.98) 100%) repeat fixed 0 0, url("../img/web/carbon_pattern.png") repeat fixed 0 0; /* FF3.6+ */
+  background: -webkit-gradient(radial, farthest-side at 10% 0, 0px, center center, 100%, color-stop(0%,rgba(69,72,77,0.94)) repeat fixed 0 0, color-stop(100%,rgba(0,0,0,0.98))), url("../img/web/carbon_pattern.png") repeat fixed 0 0; /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(farthest-side at 10% 0, ellipse cover,  rgba(69,72,77,0.94) 0%,rgba(0,0,0,0.98) 100%) repeat fixed 0 0, url("../img/web/carbon_pattern.png") repeat fixed 0 0; /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(farthest-side at 10% 0, ellipse cover,  rgba(69,72,77,0.94) 0%,rgba(0,0,0,0.98) 100%) repeat fixed 0 0, url("../img/web/carbon_pattern.png") repeat fixed 0 0; /* Opera 12+ */
+  background: -ms-radial-gradient(farthest-side at 10% 0, ellipse cover,  rgba(69,72,77,0.94) 0%,rgba(0,0,0,0.98) 100%) repeat fixed 0 0, url("../img/web/carbon_pattern.png") repeat fixed 0 0; /* IE10+ */
+  background: radial-gradient(ellipse farthest-side at 10% 0,  rgba(69,72,77,0.94) 0%,rgba(0,0,0,0.98) 100%) repeat fixed 0 0, url("../img/web/carbon_pattern.png") repeat fixed 0 0; /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33a7cfdf', endColorstr='#23538a',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
+}
+
+/* Widgets (All view blocks)
+==================================== */
+.widget
+{
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -ms-border-radius: 1px;
+  -o-border-radius: 1px;
+  border-radius: 1px;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  padding: 10px 12px;
+  color: #f8f8f8;
+  background: rgba(81, 81, 81, 0.4);
+  margin-bottom: 30px;
+  position: relative;
+}
+
 /* Navigation
 ================== */
 .dropdown-toggle {cursor: pointer;}
 
+/* Dashboard
+==================== */
+.next-event h1
+{
+  color: #CCCCCC;
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 34px;
+  margin: 20px 0 0;
+}
+
+.next-event .subheading
+{
+  font-size: 22px;
+}
+
+.next-event h2
+{
+  color: #C91619;
+  font-size: 54px;
+  font-weight: bold;
+  line-height: 16px;
+  margin: 32px 0 0;
+  text-align: right;
+}
+
+.next-event h3
+{
+  color: #999999;
+  margin: 0;
+  text-align: right;
+  font-size: 37px;
+}
+
+.next-event h5
+{
+  text-align: right;
+}
+
 /* Standings List
 =================================== */
 .drivers-nationality img, .constructor-nationality img {width: 30px;}
+
+/*radial-gradient(ellipse farthest-side at 10% 0 , rgba(102, 105, 104, 0.9), rgba(93, 112, 119, 0.89), rgba(160, 174, 150, 0.9)) repeat scroll 0 0%, url("../img/bgnoise_lg_dark.png") repeat scroll 0 0 rgba(0, 0, 0, 0)*/
+/*carbon_pattern*/

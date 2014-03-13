@@ -1,24 +1,26 @@
 <div class="selection-info"></div>
 
-<table class='table'>
-  <thead>
-    <tr class="table-heading">
-      <th>#</th><th>N.</th><th>Driver</th><th>Wins</th><th>Points</th><th>Team</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="driver in StandingsList">
-      <td>{{$index + 1}}</td> <!-- angularjs counter based on items -->
-      <td class="driver-number">{{driver.Driver.permanentNumber}}</td> <!-- Driver permanent number -->
-      <td>
-        <span class="drivers-nationality">
-          <img ng-src="img/flags/{{driver.Driver.nationality}}.png" alt="{{driver.Driver.nationality}}" title="{{driver.Driver.nationality}}" />
-        </span>&nbsp;&nbsp; <!-- driver nationality -->
-        <a href="#">{{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}</a> <!-- driver first and last name -->
-      </td>
-      <td>{{driver.wins}}</td> <!-- driver wins -->
-      <td>{{driver.points}}</td> <!-- driver points -->
-      <td>{{driver.Constructors[0].name}}</td> <!-- f1 car constructor name / the team -->
-    </tr>
-  </tbody>
-</table>
+<div class="widget">
+  <table class='table'>
+    <thead>
+      <tr class="table-heading">
+        <th>#</th><th>N.</th><th>Driver</th><th>Wins</th><th>Points</th><th>Team</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="driver in StandingsList">
+        <td>{{$index + 1}}</td> <!-- angularjs counter based on items -->
+        <td class="driver-number">{{driver.Driver.permanentNumber}}</td> <!-- Driver permanent number -->
+        <td>
+          <span class="drivers-nationality">
+            <img ng-src="img/flags/{{driver.Driver.nationality}}.png" alt="{{driver.Driver.nationality}}" title="{{driver.Driver.nationality}}" />
+          </span>&nbsp;&nbsp; <!-- driver nationality -->
+          <a href="#">{{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}</a> <!-- driver first and last name -->
+        </td>
+        <td>{{driver.wins}}</td> <!-- driver wins -->
+        <td>{{driver.points}}</td> <!-- driver points -->
+        <td>{{driver.Constructors[0].name}}</td> <!-- f1 car constructor name / the team -->
+      </tr>
+    </tbody>
+  </table>
+</div>

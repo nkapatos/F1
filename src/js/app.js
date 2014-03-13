@@ -58,17 +58,32 @@ angular.module('F1Feed').config(['$routeProvider', function($routeProvider)
     templateUrl: 'partials/constructorDetails.tpl.html'
   });
 
+  /*
+    Route patterns for drivers
+    Structure = /year/constructors
+  */
   $routeProvider.when('/info/:year/drivers',
   {
     controller:  'DriversCtrl',
     templateUrl: 'partials/drivers.tpl.html'
-  })
+  });
 
+  /*
+    Route patterns for circuits
+    Structure = /year/constructors
+  */
   $routeProvider.when('/info/:year/circuits',
   {
     controller:  'CircuitsCtrl',
     templateUrl: 'partials/circuits.tpl.html'
-  })
+  });
+
+  // Home - Dashboard
+  $routeProvider.when('/',
+  {
+    controller:  'DashboardCtrl',
+    templateUrl: 'partials/dashboard.tpl.html'
+  });
 
   $routeProvider.otherwise({redirectTo: '/'});
 }]);
