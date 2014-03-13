@@ -35,8 +35,6 @@ angular.module('F1Feed.controllers', [])
     }
     $scope.currentYear = getYear();
 
-    $scope.StandingsList = [];
-
   })
   .controller('StandingsCtrl', function($scope, ergastAPIservice, $routeParams)
   {
@@ -46,18 +44,23 @@ angular.module('F1Feed.controllers', [])
         round        = $routeParams.round,
         standingsFor = $routeParams.standingsFor;
 
-        console.log($scope.StandingsList.length);
-    //if ($scope.StandingsList.length === 0)
-   // {
+//    console.log($scope.StandingsList.length);
+
+    if (StandingsList.length === 0)
+    {
+      $scope.StandingsList = [];
       ergastAPIservice.getStandings(year, round, standingsFor).success(function (response)
       {
         if (standingsFor === 'driver')
-          $scope.StandingsList = response.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+          $scope.StandingsList = StandingsList = response.MRData.StandingsTable.StandingsLists[0].DriverStandings;
         else
-          $scope.StandingsList = response.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
+          $scope.StandingsList = StandingsList = response.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
       });
-      console.log($scope.StandingsList.length);
-    //};
+    }
+    else
+    {
+      $scope.StandingsList = StandingsList;
+    };
   })
   .controller('ConstructorsCtrl', function($scope, ergastAPIservice, $routeParams)
   {
