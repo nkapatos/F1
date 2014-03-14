@@ -50,17 +50,18 @@ body
 ==================== */
 .next-event h1
 {
-  color: #CCCCCC;
+  color: #FFF;
   font-size: 40px;
   font-weight: bold;
   letter-spacing: 0;
   line-height: 34px;
-  margin: 20px 0 0;
+  margin: 10px 0 0;
 }
 
 .next-event .subheading
 {
-  font-size: 22px;
+  font-size: 20px;
+  color: #999;
 }
 
 .next-event h2
@@ -84,6 +85,38 @@ body
 .next-event h5
 {
   text-align: right;
+}
+
+.round.next-round
+{
+  font-size: 80px;
+  line-height: 117px;
+  font-weight: lighter;
+  font-style: italic;
+  color: #FFF;
+  border-right: 1px solid;
+  background-color: brown;
+  letter-spacing: -8px;
+}
+
+.next-event .time
+{
+  font-size: 20px;
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 1px solid #FFF;
+  color: gold;
+}
+
+.next-event .date
+{
+  font-size: 20px;
+  color: goldenrod;
+}
+
+.date-time
+{
+  margin-top: 10px;
 }
 
 /* Standings List
