@@ -162,4 +162,15 @@ angular.module('F1Feed.controllers', [])
       else
         $scope.StandingsList = response.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
     });
-  })
+  }).controller('DashboardCtrl', function($scope, ergastAPIservice, $routeParams)
+  {
+
+    $scope.nextEvent = [];
+    // Next event from now
+    ergastAPIservice.getNextEvent().success(function (response){
+      $scope.nextEvent = nextEvent = response.MRData.RaceTable.Races[0];
+      console.log(nextEvent);
+    });
+    
+
+  });

@@ -8,6 +8,5 @@
 var StandingsList    = [],
     ConstructorsList = [],
     DriversList      = [],
-    CircuitsList     = [];
-
-var nextEvent;
+    CircuitsList     = [],
+    nextEvent        = [];
