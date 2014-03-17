@@ -6,6 +6,7 @@
 </div>
 
 <div class="widget">
+
   <div id="next-event" class="clearfix next-event">
     <div class="set col-md-1 next-round round">
       {{nextEvent.round}}
@@ -15,7 +16,28 @@
       <span class="subheading">{{nextEvent.Circuit.circuitName}}, {{nextEvent.Circuit.Location.locality}}</span>
       <div class="date-time">
         <span class="date">{{nextEvent.date}}</span>
-        <span class="time">{{nextEvent.time}}</span>
+        <span class="time">{{local_time}} <span class="utc-time">({{nextEvent.time}})</span></span>
+      </div>
+    </div>
+    <div class="circuit-small-info">
+      
+    </div>
+  </div>
+  
+</div>
+
+<div class="widget">
+
+  <div id="next-event" class="clearfix next-event">
+    <div class="set col-md-1 next-round round">
+      {{nextEvent.round}}
+    </div>
+    <div class="set col-md-6">
+      <h1>{{nextEvent.raceName}}</h1>
+      <span class="subheading">{{nextEvent.Circuit.circuitName}}, {{nextEvent.Circuit.Location.locality}}</span>
+      <div class="date-time">
+        <span class="date">{{nextEvent.date}}</span>
+        <span class="time">{{local_time}} <span class="utc-time">({{nextEvent.time}})</span></span>
       </div>
     </div>
     <div class="circuit-small-info">

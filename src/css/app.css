@@ -119,6 +119,12 @@ body
   margin-top: 10px;
 }
 
+.utc-time
+{
+  font-size: 13px;
+  color: green;
+}
+
 /* Standings List
 =================================== */
 .drivers-nationality img, .constructor-nationality img {width: 30px;}

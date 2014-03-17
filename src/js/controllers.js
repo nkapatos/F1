@@ -169,7 +169,28 @@ angular.module('F1Feed.controllers', [])
     // Next event from now
     ergastAPIservice.getNextEvent().success(function (response){
       $scope.nextEvent = nextEvent = response.MRData.RaceTable.Races[0];
-      console.log(nextEvent);
+      
+      // Time conversion applying UTC offset to start time (Time is in zulu which is the same with UTC)
+      var d = new Date();
+      var locale_utc_offset = (d.getTimezoneOffset() * 60) * -1;
+      var hms_zulu = nextEvent.time;
+      var hms = hms_zulu.slice(0, -1);
+      var hms_clean = hms.split(':');
+      var utc_seconds = (+hms_clean[0]) * 60 * 60 + (+hms_clean[1]) * 60 + (+hms_clean[2]);
+      var total_seconds = utc_seconds + locale_utc_offset;
+
+      var sec_num = parseInt(total_seconds, 10);
+      var hours = Math.floor(sec_num / 3600);
+
+      var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+      var seconds = sec_num - (hours * 3600) - (minutes * 60);
+
+      if (hours < 10) { hours = "0" + hours; }
+      if (minutes < 10) { minutes = "0" + minutes; }
+      if (seconds < 10) { seconds = "0" + seconds; }
+      var time = hours + ':' + minutes + ':' + seconds;
+
+      $scope.local_time = time.toString();
     });
     
 
