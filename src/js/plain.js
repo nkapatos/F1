@@ -9,4 +9,5 @@ var StandingsList    = [],
     ConstructorsList = [],
     DriversList      = [],
     CircuitsList     = [],
-    nextEvent        = [];
+    nextEvent        = [],
+    DriverStatus       = [];

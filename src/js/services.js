@@ -35,10 +35,24 @@ angular.module('F1Feed.services', []).factory('ergastAPIservice', function($http
     });
   };
 
-  ergastAPI.getDrivers = function(year)
+  ergastAPI.getDrivers = function(year, driverID, filter)
   {
+    if (!driverID)
+      var theUrl = 'http://ergast.com/api/f1/'+year+'/drivers.json?callback=JSON_CALLBACK';
+    else if (!filter)
+      var theUrl = 'http://ergast.com/api/f1/'+year+'/drivers/'+driverID+'/status.json?callback=JSON_CALLBACK';
+    else
+      var theUrl = 'http://ergast.com/api/f1/'+year+'/drivers/'+driverID+'/'+filter+'.json?callback=JSON_CALLBACK';
 
-    var theUrl = 'http://ergast.com/api/f1/'+year+'/drivers.json?callback=JSON_CALLBACK';
+    return $http({
+      method: 'JSONP',
+      url: theUrl
+    });
+  };
+
+  ergastAPI.getDriverWikiLink = function(driverID)
+  {
+    var theUrl = 'http://ergast.com/api/f1/drivers/'+driverID+'.json?callback=JSON_CALLBACK';
 
     return $http({
       method: 'JSONP',

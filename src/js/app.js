@@ -60,12 +60,20 @@ angular.module('F1Feed').config(['$routeProvider', function($routeProvider)
 
   /*
     Route patterns for drivers
-    Structure = /year/constructors
+    Structure = /year/drivers
+              = /year/driver/driverID
+              = /year/driver/driverID/status
   */
   $routeProvider.when('/info/:year/drivers',
   {
     controller:  'DriversCtrl',
     templateUrl: 'partials/drivers.tpl.html'
+  });
+
+  $routeProvider.when('/info/:year/driver/:driverID',
+  {
+    controller:  'DriversCtrl',
+    templateUrl: 'partials/driverDetails.tpl.html'
   });
 
   /*

@@ -116,19 +116,35 @@ angular.module('F1Feed.controllers', [])
   })
   .controller('DriversCtrl', function($scope, ergastAPIservice, $routeParams)
   {
-    $scope.DriversList = [];
     $scope.$routeParams  = $routeParams;
 
     var year         = $routeParams.year,
-        round        = $routeParams.round,
-        standingsFor = $routeParams.standingsFor;
+        driverID     = $routeParams.driverID,
+        filter       = $routeParams.filter;
 
-    ergastAPIservice.getDrivers(year).success(function (response)
+    ergastAPIservice.getDrivers(year, driverID, filter).success(function (response)
     {
-      
+      if (!driverID)
+      {
+        $scope.DriversList = [];
         $scope.DriversList = response.MRData.DriverTable.Drivers;
+      }
       
+      if (driverID)
+      {
+        $scope.DriverStatus = [];
+        $scope.DriverStatus = DriverStatus = response.MRData.StatusTable;
+        ergastAPIservice.getDriverWikiLink(driverID).success(function (response)
+        {
+          $scope.DriverWikiLink = response.MRData.DriverTable.Drivers[0].url;
+          wikiApiService.getDriverInfo(link).success(function (response)
+          {
+
+          });
+        })
+      };
     });
+
   })
   .controller('CircuitsCtrl', function($scope, ergastAPIservice, $routeParams)
   {
@@ -191,6 +207,14 @@ angular.module('F1Feed.controllers', [])
       var time = hours + ':' + minutes + ':' + seconds;
 
       $scope.local_time = time.toString();
+
+      // Reverse date order
+      // function parseDate(input)
+      // {
+      //   var date_parts = nextEvent..split('-');
+      //   return new Date(parts[0], parts[1]-1, parts[2]); // Note: months are 0-based
+      // }
+
     });
     
 

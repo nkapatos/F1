@@ -1,2 +1,14 @@
 <div class="selection-info"></div>
 
+<div class="col-md-4" ng-repeat="driver in DriversList">
+  <div class="widget clearfix">
+    <a href="#/info/current/driver/{{driver.driverId}}">
+      <div class="col-md-4">photo here</div>
+      <div class="col-md-8">
+        <div class="drivers-name">Name : {{driver.givenName}} {{driver.familyName}}</div>
+        <div class="driver-nationality">Nationality : {{driver.nationality}}</div>
+        <div class="driver-birth">Date of Birth : {{driver.dateOfBirth}}</div>
+      </div>
+    </a>
+  </div>
+</div>
