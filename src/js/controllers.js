@@ -114,7 +114,7 @@ angular.module('F1Feed.controllers', [])
 
     });
   })
-  .controller('DriversCtrl', function($scope, ergastAPIservice, $routeParams)
+  .controller('DriversCtrl', function($scope, ergastAPIservice, wikiApiService, $routeParams)
   {
     $scope.$routeParams  = $routeParams;
 
@@ -137,9 +137,22 @@ angular.module('F1Feed.controllers', [])
         ergastAPIservice.getDriverWikiLink(driverID).success(function (response)
         {
           $scope.DriverWikiLink = response.MRData.DriverTable.Drivers[0].url;
-          wikiApiService.getDriverInfo(link).success(function (response)
+          wikiApiService.getDriverInfo($scope.DriverWikiLink).success(function (response)
           {
+            $scope.DriverBio = [];
+            var wikiResponse = response.query.pages;
 
+            for (var property in wikiResponse)
+            {
+              if (wikiResponse.hasOwnProperty(property))
+              {
+                  console.log(property + '=' + wikiResponse[property]);
+              }
+            }
+
+          }).error(function (status)
+          {
+            $scope.DriverBio = status;
           });
         })
       };

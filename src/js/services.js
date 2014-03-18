@@ -84,4 +84,22 @@ angular.module('F1Feed.services', []).factory('ergastAPIservice', function($http
 
   return ergastAPI;
 
+}).factory('wikiApiService', function($http)
+{
+  var wikiAPI = {};
+
+  wikiAPI.getDriverInfo = function(link)
+  {
+    
+    var wikiLink = link.split('wiki/');
+    var wikiTitleClean = wikiLink[1];
+    var theUrl = 'http://en.wikipedia.org/w/api.php?&action=query&titles='+wikiTitleClean+'&prop=revisions&rvprop=content&format=json&callback=JSON_CALLBACK';
+
+    return $http({
+      method: 'JSONP',
+      url: theUrl
+    })
+  }
+
+  return wikiAPI;
 });
