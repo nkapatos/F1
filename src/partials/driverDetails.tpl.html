@@ -1,16 +1,20 @@
 <div class="selection-info">
-  <div class="current-status">
-    <div ng-repeat="status in DriverStatus.Status" class="{{status.status}} counter-{{status.count}}">
-      {{status.status}} : {{status.count}}
+  <div class="current-status col-md-12">
+    <div class="widget">
+      <div ng-repeat="status in DriverStatus.Status" class="{{status.status}} counter-{{status.count}}">
+        {{status.status}} : {{status.count}}
+      </div>
     </div>
   </div>
 </div>
 
-<div class="row">
-  <div class="side-nav col-md-3">
+
+<div class="side-nav col-md-3">
+  <div class="widget">
     <li><a href="#">Biography</a></li>
+    <li><a href="#">Results</a></li>
   </div>
-  <div class="main-content col-md-9">
-    <div class="biography-container" ng-bind-html='DriverBio'></div>
-  </div>
+</div>
+<div class="main-content col-md-9">
+  <div class="biography-container widget" ng-bind-html='DriverBio'></div>
 </div>
