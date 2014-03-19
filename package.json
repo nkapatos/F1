@@ -22,12 +22,13 @@
   },
   "homepage": "https://github.com/PixelVibe/F1",
   "devDependencies": {
-    "grunt": "^0.4.3",
+    "grunt": "^0.4.4",
     "grunt-processhtml": "^0.3.0",
-    "phantomjs" : "~1.9",
+    "phantomjs": "~1.9",
     "karma": "~0.12",
     "karma-junit-reporter": "~0.2",
-    "karma-jasmine" : "~0.1",
-    "protractor": "~0.20.1"
+    "karma-jasmine": "~0.1",
+    "protractor": "~0.20.1",
+    "grunt-gh-pages": "^0.9.1"
   }
 }
