@@ -93,7 +93,8 @@ angular.module('F1Feed.services', []).factory('ergastAPIservice', function($http
     
     var wikiLink = link.split('wiki/');
     var wikiTitleClean = wikiLink[1];
-    var theUrl = 'http://en.wikipedia.org/w/api.php?&action=query&titles='+wikiTitleClean+'&prop=revisions&rvprop=content&format=json&callback=JSON_CALLBACK';
+    //var theUrl = 'http://en.wikipedia.org/w/api.php?&action=query&titles='+wikiTitleClean+'&prop=revisions&rvprop=content&format=json&callback=JSON_CALLBACK';
+    var theUrl = 'http://en.wikipedia.org/w/api.php?action=query&prop=revisions&format=json&rvprop=content&rvlimit=1&rvparse=&titles='+wikiTitleClean+'&callback=JSON_CALLBACK'
 
     return $http({
       method: 'JSONP',

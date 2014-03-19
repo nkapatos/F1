@@ -146,7 +146,7 @@ angular.module('F1Feed.controllers', [])
             {
               if (wikiResponse.hasOwnProperty(property))
               {
-                  console.log(property + '=' + wikiResponse[property]);
+                $scope.DriverBio = response.query.pages[property].revisions[0]['*'];
               }
             }
 

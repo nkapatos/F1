@@ -4,7 +4,8 @@
 angular.module('F1Feed', [
   'ngRoute',
   'F1Feed.controllers',
-  'F1Feed.services'
+  'F1Feed.services',
+  'ngSanitize'
 ]);
 
 // Routes Configuration
