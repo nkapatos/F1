@@ -63,10 +63,11 @@ module.exports = function(grunt)
           readme_folder:      "docs",
           output:             "README.md",
           table_of_contents:  true,
-          generate_changelog: true,
+          generate_changelog: false,
+          generate_footer:    true,
           changelog_folder:   "docs/changelogs",
           github_username:    "PixelVibe",
-          generate_title:     false,
+          generate_title:     true,
           informative:        true,
         },
         order:
