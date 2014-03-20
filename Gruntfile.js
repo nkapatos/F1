@@ -26,14 +26,14 @@ module.exports = function(grunt)
         options:
         {
           compress: true,
-          linenos: false,
+          linenos:  false,
         },
         files: // Config dist to concat files
         [{
-          cwd: 'src/assets/styles/',
-          src: [ '*.styl' ],
+          cwd:  'src/assets/styles/',
+          src:  [ '*.styl' ],
           dest: 'bin/assets/styles/',
-          ext: '.css'
+          ext:  '.css'
         }]
       }
     },
@@ -43,10 +43,15 @@ module.exports = function(grunt)
     {
       options:
       {
-        'eqeqeq':   true, // == vs ===
-        'forin':    true, // for in loops
-        'trailing': true, // extra spaces
-        'sub':      true
+        'eqeqeq':        true, // = = vs ===
+        'forin':         true, // for in loops
+        'trailing':      true, // extra spaces
+        'sub':           true,
+        'globalstrict':  true,
+        'globals':
+        {
+          "angular":     true
+        }
       },
       def:
       {
