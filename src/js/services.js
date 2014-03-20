@@ -4,14 +4,14 @@
 angular.module('F1Feed.services', []).factory('ergastAPIservice', function($http)
 {
   var ergastAPI = {};
+  var theUrl;
 
   ergastAPI.getStandings = function(year, round, standingsFor)
   {
-
     if (!round)
-      var theUrl = 'http://ergast.com/api/f1/'+year+'/'+standingsFor+'Standings.json?callback=JSON_CALLBACK'
+      theUrl = 'http://ergast.com/api/f1/'+year+'/'+standingsFor+'Standings.json?callback=JSON_CALLBACK';
     else
-      var theUrl = 'http://ergast.com/api/f1/'+year+'/'+round+'/'+standingsFor+'Standings.json?callback=JSON_CALLBACK'
+      theUrl = 'http://ergast.com/api/f1/'+year+'/'+round+'/'+standingsFor+'Standings.json?callback=JSON_CALLBACK';
 
     return $http({
       method: 'JSONP',
@@ -23,11 +23,11 @@ angular.module('F1Feed.services', []).factory('ergastAPIservice', function($http
   {
 
     if (!constructor_id)
-      var theUrl = 'http://ergast.com/api/f1/'+year+'/constructors.json?callback=JSON_CALLBACK';
+      theUrl = 'http://ergast.com/api/f1/'+year+'/constructors.json?callback=JSON_CALLBACK';
     else if(!filter)
-      var theUrl = 'http://ergast.com/api/f1/'+year+'/constructors/'+constructor_id+'/status.json?callback=JSON_CALLBACK';
+      theUrl = 'http://ergast.com/api/f1/'+year+'/constructors/'+constructor_id+'/status.json?callback=JSON_CALLBACK';
     else
-      var theUrl = 'http://ergast.com/api/f1/'+year+'/constructors/'+constructor_id+'/'+filter+'.json?callback=JSON_CALLBACK';
+      theUrl = 'http://ergast.com/api/f1/'+year+'/constructors/'+constructor_id+'/'+filter+'.json?callback=JSON_CALLBACK';
 
     return $http({
       method: 'JSONP',
@@ -38,11 +38,11 @@ angular.module('F1Feed.services', []).factory('ergastAPIservice', function($http
   ergastAPI.getDrivers = function(year, driverID, filter)
   {
     if (!driverID)
-      var theUrl = 'http://ergast.com/api/f1/'+year+'/drivers.json?callback=JSON_CALLBACK';
+      theUrl = 'http://ergast.com/api/f1/'+year+'/drivers.json?callback=JSON_CALLBACK';
     else if (!filter)
-      var theUrl = 'http://ergast.com/api/f1/'+year+'/drivers/'+driverID+'/status.json?callback=JSON_CALLBACK';
+      theUrl = 'http://ergast.com/api/f1/'+year+'/drivers/'+driverID+'/status.json?callback=JSON_CALLBACK';
     else
-      var theUrl = 'http://ergast.com/api/f1/'+year+'/drivers/'+driverID+'/'+filter+'.json?callback=JSON_CALLBACK';
+      theUrl = 'http://ergast.com/api/f1/'+year+'/drivers/'+driverID+'/'+filter+'.json?callback=JSON_CALLBACK';
 
     return $http({
       method: 'JSONP',
@@ -52,7 +52,7 @@ angular.module('F1Feed.services', []).factory('ergastAPIservice', function($http
 
   ergastAPI.getDriverWikiLink = function(driverID)
   {
-    var theUrl = 'http://ergast.com/api/f1/drivers/'+driverID+'.json?callback=JSON_CALLBACK';
+    theUrl = 'http://ergast.com/api/f1/drivers/'+driverID+'.json?callback=JSON_CALLBACK';
 
     return $http({
       method: 'JSONP',
@@ -63,7 +63,7 @@ angular.module('F1Feed.services', []).factory('ergastAPIservice', function($http
   ergastAPI.getCircuits = function(year)
   {
 
-    var theUrl = 'http://ergast.com/api/f1/'+year+'/circuits.json?callback=JSON_CALLBACK';
+    theUrl = 'http://ergast.com/api/f1/'+year+'/circuits.json?callback=JSON_CALLBACK';
 
     return $http({
       method: 'JSONP',
@@ -74,7 +74,7 @@ angular.module('F1Feed.services', []).factory('ergastAPIservice', function($http
   ergastAPI.getNextEvent = function()
   {
 
-    var theUrl = 'http://ergast.com/api/f1/current/next.json?callback=JSON_CALLBACK';
+    theUrl = 'http://ergast.com/api/f1/current/next.json?callback=JSON_CALLBACK';
 
     return $http({
       method: 'JSONP',
@@ -98,8 +98,8 @@ angular.module('F1Feed.services', []).factory('ergastAPIservice', function($http
     return $http({
       method: 'JSONP',
       url: theUrl
-    })
-  }
+    });
+  };
 
   return wikiAPI;
 });

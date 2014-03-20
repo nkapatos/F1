@@ -21,13 +21,13 @@ angular.module('F1Feed').config(['$routeProvider', function($routeProvider)
   $routeProvider.when('/standings/:year/:standingsFor',
   {
     controller:  'StandingsCtrl',
-    templateUrl: function(params) { return 'partials/' + params.standingsFor + 'Standings.tpl.html' }
+    templateUrl: function(params) { return 'partials/' + params.standingsFor + 'Standings.tpl.html'; }
   });
 
   $routeProvider.when('/standings/:year/:round/:standingsFor',
   {
     controller:  'StandingsCtrl',
-    templateUrl: function(params) { return 'partials/' + params.standingsFor + 'Standings.tpl.html' }
+    templateUrl: function(params) { return 'partials/' + params.standingsFor + 'Standings.tpl.html'; }
   });
 
   /*

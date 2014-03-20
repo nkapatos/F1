@@ -25,6 +25,13 @@
 
 */
 
+var StandingsList    = [],
+    ConstructorsList = [],
+    DriversList      = [],
+    CircuitsList     = [],
+    nextEvent        = [],
+    DriverStatus     = [];
+
 /* Controllers */
 angular.module('F1Feed.controllers', [])
   .controller('MainCtrl', function($scope)
@@ -45,11 +52,9 @@ angular.module('F1Feed.controllers', [])
         round        = $routeParams.round,
         standingsFor = $routeParams.standingsFor;
 
-//    console.log($scope.StandingsList.length);
-
+    //if (typeof(StandingsList) === 'undefined')
     if (StandingsList.length === 0)
     {
-      $scope.StandingsList = [];
       ergastAPIservice.getStandings(year, round, standingsFor).success(function (response)
       {
         if (standingsFor === 'driver')
@@ -61,7 +66,7 @@ angular.module('F1Feed.controllers', [])
     else
     {
       $scope.StandingsList = StandingsList;
-    };
+    }
   })
   .controller('ConstructorsCtrl', function($scope, ergastAPIservice, $routeParams)
   {
@@ -106,11 +111,12 @@ angular.module('F1Feed.controllers', [])
             break;
 
           case 'status':
+          /* falls through */
           default:
             $scope.ConstructorsList = response.MRData.StatusTable.Status;
             break;
         }
-      };
+      }
 
     });
   })
@@ -154,8 +160,8 @@ angular.module('F1Feed.controllers', [])
           {
             $scope.DriverBio = status;
           });
-        })
-      };
+        });
+      }
     });
 
   })
