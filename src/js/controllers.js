@@ -30,6 +30,7 @@ var StandingsList    = [],
     DriversList      = [],
     CircuitsList     = [],
     nextEvent        = [],
+    prevEvent        = [],
     DriverStatus     = [];
 
 /* Controllers */
@@ -200,15 +201,38 @@ angular.module('F1Feed.controllers', [])
   }).controller('DashboardCtrl', function($scope, ergastAPIservice, $routeParams)
   {
 
-    $scope.nextEvent = [];
+    $scope.nextEvent                   = [];
+    $scope.prevEventResults            = [];
+    $scope.prevEventConstructorResults = [];
+
     // Next event from now
-    ergastAPIservice.getNextEvent().success(function (response){
+    ergastAPIservice.getNextEvent().success(function (response)
+    {
       $scope.nextEvent = nextEvent = response.MRData.RaceTable.Races[0];
-      
-      // Time conversion applying UTC offset to start time (Time is in zulu which is the same with UTC)
+      $scope.local_time_next = UTCtoLocalTime.toString();
+    });
+
+    // Returns top 3 drivers, with time, starting grid, name and constructor
+    // http://ergast.com/api/f1/current/last/results?limit=3
+    ergastAPIservice.getPrevEventResults().success(function (response)
+    {
+      prevEventResults = response.MRData.RaceTable.Races[0];
+      $scope.local_time_prev = UTCtoLocalTime.toString();
+    });
+
+    // return top 3 constructors.
+    // http://ergast.com/api/f1/current/last/constructorStandings
+    ergastAPIservice.getPrevEventResults().success(function (response)
+    {
+      prevEventConstructorResults = response.MRData.RaceTable.Races[0];
+    });
+
+    // Time conversion applying UTC offset to start time (Time is in zulu which is the same with UTC)
+    function UTCtoLocalTime(timestring)
+    {
       var d = new Date();
       var locale_utc_offset = (d.getTimezoneOffset() * 60) * -1;
-      var hms_zulu = nextEvent.time;
+      var hms_zulu = timestring.time;
       var hms = hms_zulu.slice(0, -1);
       var hms_clean = hms.split(':');
       var utc_seconds = (+hms_clean[0]) * 60 * 60 + (+hms_clean[1]) * 60 + (+hms_clean[2]);
@@ -225,16 +249,16 @@ angular.module('F1Feed.controllers', [])
       if (seconds < 10) { seconds = "0" + seconds; }
       var time = hours + ':' + minutes + ':' + seconds;
 
-      $scope.local_time = time.toString();
+      return (time);
 
-      // Reverse date order
-      // function parseDate(input)
-      // {
-      //   var date_parts = nextEvent..split('-');
-      //   return new Date(parts[0], parts[1]-1, parts[2]); // Note: months are 0-based
-      // }
+    }
 
-    });
+    // Reverse date order
+    // function parseDate(input)
+    // {
+    //   var date_parts = nextEvent..split('-');
+    //   return new Date(parts[0], parts[1]-1, parts[2]); // Note: months are 0-based
+    // }
     
 
   });
