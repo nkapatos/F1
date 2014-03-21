@@ -29,12 +29,9 @@ module.exports = function(grunt)
           linenos:  false,
         },
         files: // Config dist to concat files
-        [{
-          cwd:  'src/assets/styles/',
-          src:  [ '*.styl' ],
-          dest: 'bin/assets/styles/',
-          ext:  '.css'
-        }]
+        {
+          'dist/css/style.css' : 'src/css/*.styl',
+        }
       }
     },
 
@@ -43,7 +40,7 @@ module.exports = function(grunt)
     {
       options:
       {
-        'eqeqeq':        true, // = = vs ===
+        'eqeqeq':        true, // == vs ===
         'forin':         true, // for in loops
         'trailing':      true, // extra spaces
         'sub':           true,
@@ -56,6 +53,10 @@ module.exports = function(grunt)
       def:
       {
         src: ['src/js/*.js']
+      },
+      dist:
+      {
+        src: ['dist/js/*.js']
       }
     },
 
@@ -77,12 +78,84 @@ module.exports = function(grunt)
         },
         order:
         {
-          "header.md":       "Tada!",
+          "header.md":       "F1 Feed",
           "overview.md":     "Overview",
           "installation.md": "Installation",
           "features.md":     "Features",
           "licence.md":      "Licence"
         }
+      }
+    },
+
+    concat: {
+      dist:
+      {
+        src: ['dist/js/app-split/*.js',],
+        dest: 'dist/js/app-concat.js'
+      }
+    },
+
+    ngmin:
+    {
+      dist:
+      {
+        expand: true,
+        cwd: 'src/js',
+        src: ['*'],
+        dest: 'dist/js/app-split/'
+      }
+    },
+
+    uglify:
+    {
+      dist:
+      {
+        files:
+        {
+          'dist/js/app.min.js': ['<%= concat.dist.dest %>']
+        }
+      }
+    },
+
+    processhtml:
+    {
+      dist:
+      {
+        files:
+        {
+          'dist/index.html': ['src/index.html']
+        }
+      }
+    },
+
+    copy: {
+      dist: {
+        files:
+        [
+          {
+            expand: true,
+            cwd: 'src',
+            src: 
+            [
+              'img/**',
+              'partials/**',
+              'lib/**'
+            ],
+            dest:   'dist/',
+            filter: 'isFile'
+          },
+          {
+            'dist/js/vendor/jquery.min.js': 'bower_components/jquery/dist/jquery.min.js',
+            'dist/js/vendor/bootstrap.min.js': 'bower_components/bootstrap/dist/js/bootstrap.min.js',
+            'dist/js/vendor/angular/angular-route.min.js': 'bower_components/angular-route/angular-route.min.js',
+            'dist/js/vendor/angular/angular-sanitize.min.js': 'bower_components/angular-sanitize/angular-sanitize.min.js'
+          },
+          {
+            'dist/css/body.css': 'src/css/body.css',
+            'dist/css/bootstrap.min.css': 'bower_components/bootstrap/dist/css/bootstrap.min.css',
+            'dist/css/bootstrap-theme.min.css': 'bower_components/bootstrap/dist/css/bootstrap-theme.min.css',
+          }
+        ]
       }
     },
 
@@ -112,7 +185,7 @@ module.exports = function(grunt)
   grunt.registerTask('devwatch', ['watch']);
   
   // Build task for distribution version
-  // grunt.registerTask('binbuild', ['sync']);
+  grunt.registerTask('build', ['ngmin', 'concat', 'uglify', 'stylus:dist', 'copy', 'processhtml']);
   
   // Build readme file
   grunt.registerTask('readme', ['readme_generator']);
