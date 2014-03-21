@@ -1,0 +1,22 @@
+<div class="col-md-3">
+  <ol>
+    <li><a href="#/{{year}}/constructor/{{constructor_id}}/status">Status</a></li>
+    <li><a href="#/{{year}}/constructor/{{constructor_id}}/circuits">Circuits</a></li>
+    <li><a href="#/{{year}}/constructor/{{constructor_id}}/drivers">Drivers</a></li>
+    <!-- <li><a href="#/{{year}}/constructor/{{constructor_id}}/grid">Grid</a></li> -->
+    <li><a href="#/{{year}}/constructor/{{constructor_id}}/results">Results</a></li>
+    <!-- <li><a href="#/{{year}}/constructor/{{constructor_id}}/fastest">Fastest</a></li> -->
+  </ol>
+</div> <!-- Constructor options -->
+<div class="col-md-9">
+  <div class="constructor-status-view">
+    <ul>
+      <li ng-repeat="status in ConstructorsList">
+        {{status.status}} - {{status.count}} time(s)
+      </li>
+    </ul>
+  </div> <!-- status views -->
+  <div class="constructor-circuits-view"></div> <!-- status views -->
+  <div class="constructor-drivers-view"></div> <!-- status views -->
+  <div class="constructor-results-view"></div> <!-- status views -->
+</div> <!-- information viewport -->

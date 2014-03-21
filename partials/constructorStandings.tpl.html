@@ -1,0 +1,28 @@
+<div class="selection-info"></div>
+  
+<table class='table'>
+  <thead>
+    <tr class="table-heading">
+      <th>Pos.</th>
+      <th>Country</th>
+      <th>Name</th>
+      <th>Points</th>
+      <th>Wins</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="f1constructor in StandingsList">
+      <td>{{f1constructor.position}}</td>
+      <td>
+        <span class="constructor-nationality">
+          <img ng-src="img/flags/{{f1constructor.Constructor.nationality}}.png" alt="{{f1constructor.Constructor.nationality}}" title="{{f1constructor.Constructor.nationality}}" />
+        </span>&nbsp;&nbsp; <!-- constructor nationality -->
+      </td>
+      <td>
+        <a href="#">{{f1constructor.Constructor.name}}</a> <!-- constructor name -->
+      </td>
+      <td>{{f1constructor.points}}</td>
+      <td>{{f1constructor.wins}}</td>
+    </tr>
+  </tbody>
+</table>

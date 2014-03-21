@@ -1,0 +1,25 @@
+<div class="selection-info"></div>
+  
+<table class='table'>
+  <thead>
+    <tr class="table-heading">
+      <th>#</th>
+      <th>Country</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="f1constructor in ConstructorsList">
+      <td>{{$index + 1}}</td>
+      <td>
+        <span class="constructor-nationality">
+          <img ng-src="img/flags/{{f1constructor.nationality}}.png" alt="{{f1constructor.nationality}}" title="{{f1constructor.nationality}}" />
+        </span>&nbsp;&nbsp; <!-- constructor nationality -->
+      </td>
+      <td>
+        <a href="#/current/constructor/{{f1constructor.constructorId}}">{{f1constructor.name}}</a> <!-- constructor name -->
+      </td>
+      <td><a href="{{f1constructor.url}}">wiki</a></td>
+    </tr>
+  </tbody>
+</table>
