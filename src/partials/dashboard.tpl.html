@@ -30,14 +30,14 @@
 
   <div id="previous-event" class="clearfix previous-event race-event">
     <div class="set col-md-1 previous-round round">
-      {{nextEvent.round}}
+      {{prevEventResults.round}}
     </div>
     <div class="set col-md-6">
-      <h1>{{nextEvent.raceName}}</h1>
-      <span class="subheading">{{nextEvent.Circuit.circuitName}}, {{nextEvent.Circuit.Location.locality}}</span>
+      <h1>{{prevEventResults.raceName}}</h1>
+      <span class="subheading">{{prevEventResults.Circuit.circuitName}}, {{prevEventResults.Circuit.Location.locality}}</span>
       <div class="date-time">
-        <span class="date">{{nextEvent.date}}</span>
-        <span class="time">{{local_time}} <span class="utc-time">({{nextEvent.time}})</span></span>
+        <span class="date">{{prevEventResults.date}}</span>
+        <span class="time">{{local_time}} <span class="utc-time">({{prevEventResults.time}})</span></span>
       </div>
     </div>
     <div class="circuit-small-info">

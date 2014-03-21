@@ -30,7 +30,7 @@ var StandingsList    = [],
     DriversList      = [],
     CircuitsList     = [],
     nextEvent        = [],
-    prevEvent        = [],
+    prevEventResults = [],
     DriverStatus     = [];
 
 /* Controllers */
@@ -216,16 +216,16 @@ angular.module('F1Feed.controllers', [])
     // http://ergast.com/api/f1/current/last/results?limit=3
     ergastAPIservice.getPrevEventResults().success(function (response)
     {
-      prevEventResults = response.MRData.RaceTable.Races[0];
+      $scope.prevEventResults = prevEventResults = response.MRData.RaceTable.Races[0];
       $scope.local_time_prev = UTCtoLocalTime.toString();
     });
 
     // return top 3 constructors.
     // http://ergast.com/api/f1/current/last/constructorStandings
-    ergastAPIservice.getPrevEventResults().success(function (response)
-    {
-      prevEventConstructorResults = response.MRData.RaceTable.Races[0];
-    });
+    // ergastAPIservice.getPrevEventResults().success(function (response)
+    // {
+    //   prevEventConstructorResults = response.MRData.RaceTable.Races[0];
+    // });
 
     // Time conversion applying UTC offset to start time (Time is in zulu which is the same with UTC)
     function UTCtoLocalTime(timestring)

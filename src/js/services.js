@@ -82,6 +82,17 @@ angular.module('F1Feed.services', []).factory('ergastAPIservice', function($http
     });
   };
 
+  ergastAPI.getPrevEventResults = function()
+  {
+
+    theUrl = 'http://ergast.com/api/f1/current/last/results.json?limit=3&callback=JSON_CALLBACK';
+
+    return $http({
+      method: 'JSONP',
+      url: theUrl
+    });
+  };
+
   return ergastAPI;
 
 }).factory('wikiApiService', function($http)

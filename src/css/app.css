@@ -71,10 +71,11 @@ body {
   letter-spacing: -8px;
 }
 .race-event .round.next-round {
-  background-color: #a52a2a;
+  background-color: #06993a;
 }
 .race-event .round.previous-round {
-  background-color: #008000;
+  background-color: #222;
+  color: #999;
 }
 .race-event .time {
   font-size: 20px;
