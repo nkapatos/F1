@@ -1,0 +1,27 @@
+# First set are rules from angular-seed project
+# https://github.com/angular/angular-seed
+
+logs/*
+!.gitkeep
+node_modules/
+tmp
+.DS_Store
+.idea
+
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+npm-debug.log
+node_modules
+bower_components/
+dist/*
