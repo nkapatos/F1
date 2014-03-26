@@ -209,7 +209,7 @@ angular.module('F1Feed.controllers', [])
     ergastAPIservice.getNextEvent().success(function (response)
     {
       $scope.nextEvent = nextEvent = response.MRData.RaceTable.Races[0];
-      $scope.local_time_next = UTCtoLocalTime.toString();
+      $scope.local_time_next = UTCtoLocalTime(nextEvent.time);
     });
 
     // Returns top 3 drivers, with time, starting grid, name and constructor
@@ -217,7 +217,7 @@ angular.module('F1Feed.controllers', [])
     ergastAPIservice.getPrevEventResults().success(function (response)
     {
       $scope.prevEventResults = prevEventResults = response.MRData.RaceTable.Races[0];
-      $scope.local_time_prev = UTCtoLocalTime.toString();
+      $scope.local_time_prev = UTCtoLocalTime(prevEventResults.time);
     });
 
     // return top 3 constructors.
@@ -232,7 +232,7 @@ angular.module('F1Feed.controllers', [])
     {
       var d = new Date();
       var locale_utc_offset = (d.getTimezoneOffset() * 60) * -1;
-      var hms_zulu = timestring.time;
+      var hms_zulu = timestring;
       var hms = hms_zulu.slice(0, -1);
       var hms_clean = hms.split(':');
       var utc_seconds = (+hms_clean[0]) * 60 * 60 + (+hms_clean[1]) * 60 + (+hms_clean[2]);
@@ -249,16 +249,18 @@ angular.module('F1Feed.controllers', [])
       if (seconds < 10) { seconds = "0" + seconds; }
       var time = hours + ':' + minutes + ':' + seconds;
 
+      console.log('zulu time : '+timestring+' utc convertion : ' + time)
+
       return (time);
 
     }
 
     // Reverse date order
-    // function parseDate(input)
-    // {
-    //   var date_parts = nextEvent..split('-');
-    //   return new Date(parts[0], parts[1]-1, parts[2]); // Note: months are 0-based
-    // }
+    function parseDate(input)
+    {
+      var date_parts = nextEvent.split('-');
+      return new Date(date_parts[0], date_parts[1]-1, date_parts[2]); // Note: months are 0-based
+    }
     
 
   });
