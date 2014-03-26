@@ -22,7 +22,7 @@ body {
   padding: 10px 12px;
   color: #f8f8f8;
   background: rgba(81,81,81,0.4);
-  margin-bottom: 30px;
+  margin-top: 15px;
   position: relative;
 }
 /* Navigation
@@ -38,12 +38,10 @@ body {
   font-weight: bold;
   line-height: 16px;
   margin: 32px 0 0;
-  text-align: right;
 }
 .season-info h3 {
   color: #999;
   margin: 0;
-  text-align: right;
   font-size: 37px;
 }
 .race-event h1 {

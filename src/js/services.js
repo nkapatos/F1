@@ -93,6 +93,28 @@ angular.module('F1Feed.services', []).factory('ergastAPIservice', function($http
     });
   };
 
+  ergastAPI.getTopTwoConstructors = function()
+  {
+
+    theUrl = 'http://ergast.com/api/f1/current/constructorstandings.json?limit=2&callback=JSON_CALLBACK';
+
+    return $http({
+      method: 'JSONP',
+      url: theUrl
+    });
+  };
+
+  ergastAPI.getTopTwoDrivers = function()
+  {
+
+    theUrl = 'http://ergast.com/api/f1/current/driverstandings.json?limit=2&callback=JSON_CALLBACK';
+
+    return $http({
+      method: 'JSONP',
+      url: theUrl
+    });
+  };
+
   return ergastAPI;
 
 }).factory('wikiApiService', function($http)

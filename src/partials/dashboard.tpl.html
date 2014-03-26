@@ -1,13 +1,38 @@
-<div class="selection-info">
-  <div class="season-info">
-    <h2>{{nextEvent.season}}</h2>
-    <h3>season</h3>
+<div class="selection-info col-md-12">
+  <div class="widget">
+      <div class="row">
+        <div class="col-md-5 top-two-drivers">
+          <h4>Top 2 drivers</h4>
+          <ul class="list-unstyled">
+            <li ng-repeat="topDriver in topTwoDrivers">
+              <span class="driverName">{{topDriver.Driver.givenName}} {{topDriver.Driver.familyName}}</span>
+              <span class="driverPoints"> with {{topDriver.points}} points </span>
+              <span class="driverWins">and {{topDriver.wins}} wins</span>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-5 top-two-constructors">
+        <h4>Top 2 constructors</h4>
+          <ul class="list-unstyled">
+            <li ng-repeat="topConstructor in topTwoConstructors">
+              <span class="constructorName">{{topConstructor.Constructor.name}}</span>
+              <span class="constructorPoints"> with {{topConstructor.points}} points </span>
+              <span class="constructorWins">and {{topConstructor.wins}} wins</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <div class="season-info" style="position: absolute; right: 0; top: 0;">
+      <h2>{{nextEvent.season}}</h2>
+      <h3>season</h3>
+    </div>
   </div>
 </div>
 
-<div class="widget">
 
-  <div id="next-event" class="clearfix next-event race-event">
+
+<div id="next-event" class="next-event race-event col-md-12">
+  <div class="widget clearfix">
     <div class="set col-md-1 next-round round">
       {{nextEvent.round}}
     </div>
@@ -19,20 +44,15 @@
         <span class="time">{{local_time_next}} <span class="utc-time">({{nextEvent.time}})</span></span>
       </div>
     </div>
-    <div class="circuit-small-info">
-      
-    </div>
   </div>
-  
 </div>
 
-<div class="widget">
-
-  <div id="previous-event" class="clearfix previous-event race-event">
+<div id="previous-event" class="previous-event race-event col-md-12">
+  <div class="widget clearfix">
     <div class="set col-md-1 previous-round round">
       {{prevEventResults.round}}
     </div>
-    <div class="set col-md-6">
+    <div class="set col-md-11">
       <h1>{{prevEventResults.raceName}}</h1>
       <span class="subheading">{{prevEventResults.Circuit.circuitName}}, {{prevEventResults.Circuit.Location.locality}}</span>
       <div class="date-time">
@@ -40,9 +60,24 @@
         <span class="time">{{local_time_prev}} <span class="utc-time">({{prevEventResults.time}})</span></span>
       </div>
     </div>
-    <div class="circuit-small-info">
-      
+    <div class="race-results col-md-12">
+      <h4>Race results</h4>
+      <table class='table'>
+        <tr class="table-heading">
+          <th>Grid</th>
+          <th>Driver</th>
+          <th>Time</th>
+          <th>A. Speed</th>
+          <th>F. Lap</th>
+        </tr>
+        <tr ng-repeat="result in prevEventResults.Results">
+          <td>{{result.grid}}</td>
+          <td>{{result.Driver.givenName}} {{result.Driver.familyName}}</td>
+          <td>{{result.Time.time}}</td>
+          <td>{{result.FastestLap.AverageSpeed.speed}} {{result.FastestLap.AverageSpeed.units}}</td>
+          <td>{{result.FastestLap.Time.time}}</td>
+        </tr>
+      </table>
     </div>
-  </div>
-  
+  </div>  
 </div>

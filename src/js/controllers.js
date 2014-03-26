@@ -25,13 +25,16 @@
 
 */
 
-var StandingsList    = [],
-    ConstructorsList = [],
-    DriversList      = [],
-    CircuitsList     = [],
-    nextEvent        = [],
-    prevEventResults = [],
-    DriverStatus     = [];
+var StandingsList               = [],
+    ConstructorsList            = [],
+    DriversList                 = [],
+    CircuitsList                = [],
+    nextEvent                   = [],
+    prevEventResults            = [],
+    prevEventConstructorResults = [],
+    DriverStatus                = [],
+    topTwoConstructors          = [],
+    topTwoDrivers               = [];
 
 /* Controllers */
 angular.module('F1Feed.controllers', [])
@@ -209,7 +212,7 @@ angular.module('F1Feed.controllers', [])
     ergastAPIservice.getNextEvent().success(function (response)
     {
       $scope.nextEvent = nextEvent = response.MRData.RaceTable.Races[0];
-      $scope.local_time_next = UTCtoLocalTime(nextEvent.time);
+      $scope.local_time_next = utcToLocalTime(nextEvent.time);
     });
 
     // Returns top 3 drivers, with time, starting grid, name and constructor
@@ -217,18 +220,27 @@ angular.module('F1Feed.controllers', [])
     ergastAPIservice.getPrevEventResults().success(function (response)
     {
       $scope.prevEventResults = prevEventResults = response.MRData.RaceTable.Races[0];
-      $scope.local_time_prev = UTCtoLocalTime(prevEventResults.time);
+      $scope.local_time_prev = utcToLocalTime(prevEventResults.time);
     });
 
-    // return top 3 constructors.
-    // http://ergast.com/api/f1/current/last/constructorStandings
-    // ergastAPIservice.getPrevEventResults().success(function (response)
-    // {
-    //   prevEventConstructorResults = response.MRData.RaceTable.Races[0];
-    // });
+    // return top 2 constructors by points.
+    // http://ergast.com/api/f1/current/constructorstandings?limit=2
+    ergastAPIservice.getTopTwoConstructors().success(function (response)
+    {
+      $scope.topTwoConstructors = [];
+      $scope.topTwoConstructors = topTwoConstructors = response.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
+    });
+
+    // return top 2 drivers by points.
+    // http://ergast.com/api/f1/current/driverstandings?limit=2
+    ergastAPIservice.getTopTwoDrivers().success(function (response)
+    {
+      $scope.topTwoDrivers = [];
+      $scope.topTwoDrivers = topTwoDrivers = response.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+    });
 
     // Time conversion applying UTC offset to start time (Time is in zulu which is the same with UTC)
-    function UTCtoLocalTime(timestring)
+    function utcToLocalTime(timestring)
     {
       var d = new Date();
       var locale_utc_offset = (d.getTimezoneOffset() * 60) * -1;
@@ -249,17 +261,18 @@ angular.module('F1Feed.controllers', [])
       if (seconds < 10) { seconds = "0" + seconds; }
       var time = hours + ':' + minutes + ':' + seconds;
 
-      console.log('zulu time : '+timestring+' utc convertion : ' + time)
-
+      console.log('zulu time : '+timestring+' convertion to local time: ' + time);
       return (time);
 
     }
 
     // Reverse date order
-    function parseDate(input)
+    function parseDate(date)
     {
-      var date_parts = nextEvent.split('-');
-      return new Date(date_parts[0], date_parts[1]-1, date_parts[2]); // Note: months are 0-based
+      var date_parts = date.split('-');
+      var new_date_format = new Date(date_parts[0], date_parts[1]-1, date_parts[2]); // Note: months are 0-based
+      console.log('usa date format : ' + date + ' - eu date format : ' + new_date_format);
+      return new_date_format;
     }
     
 
