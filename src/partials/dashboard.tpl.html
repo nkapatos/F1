@@ -22,7 +22,7 @@
           </ul>
         </div>
       </div>
-    <div class="season-info" style="position: absolute; right: 0; top: 0;">
+    <div class="season-info" style="position: absolute; right: 15px; top: 8px;">
       <h2>{{nextEvent.season}}</h2>
       <h3>season</h3>
     </div>
@@ -60,24 +60,26 @@
         <span class="time">{{local_time_prev}} <span class="utc-time">({{prevEventResults.time}})</span></span>
       </div>
     </div>
-    <div class="race-results col-md-12">
-      <h4>Race results</h4>
-      <table class='table'>
-        <tr class="table-heading">
-          <th>Grid</th>
-          <th>Driver</th>
-          <th>Time</th>
-          <th>A. Speed</th>
-          <th>F. Lap</th>
-        </tr>
-        <tr ng-repeat="result in prevEventResults.Results">
-          <td>{{result.grid}}</td>
-          <td>{{result.Driver.givenName}} {{result.Driver.familyName}}</td>
-          <td>{{result.Time.time}}</td>
-          <td>{{result.FastestLap.AverageSpeed.speed}} {{result.FastestLap.AverageSpeed.units}}</td>
-          <td>{{result.FastestLap.Time.time}}</td>
-        </tr>
-      </table>
+    <div class="row">
+      <div class="race-results col-md-12">
+        <h4>Race results</h4>
+        <table class='table'>
+          <tr class="table-heading">
+            <th>Grid</th>
+            <th>Driver</th>
+            <th>Time</th>
+            <th>A. Speed</th>
+            <th>F. Lap</th>
+          </tr>
+          <tr ng-repeat="result in prevEventResults.Results">
+            <td>{{result.grid}}</td>
+            <td>{{result.Driver.givenName}} {{result.Driver.familyName}}</td>
+            <td>{{result.Time.time}}</td>
+            <td>{{result.FastestLap.AverageSpeed.speed}} {{result.FastestLap.AverageSpeed.units}}</td>
+            <td>{{result.FastestLap.Time.time}}</td>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>  
 </div>
