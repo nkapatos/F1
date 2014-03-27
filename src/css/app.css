@@ -101,3 +101,52 @@ body {
 }
 /*radial-gradient(ellipse farthest-side at 10% 0 , rgba(102, 105, 104, 0.9), rgba(93, 112, 119, 0.89), rgba(160, 174, 150, 0.9)) repeat scroll 0 0%, url("../img/bgnoise_lg_dark.png") repeat scroll 0 0 rgba(0, 0, 0, 0)*/
 /*carbon_pattern*/
+/* Transitions
+================================== */
+.row div {
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+/* Media Queries
+================================== */
+/* Large desktop */
+@media screen and (min-width: 1601px) {
+  .col-md-3.col-custom {
+    width: 14.285%;
+  }
+}
+@media (min-width: 1301px) and (max-width: 1600px) {
+  .col-md-3.col-custom {
+    width: 16.667%;
+  }
+}
+@media (min-width: 1051px) and (max-width: 1300px) {
+  .col-md-3.col-custom {
+    width: 20%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1050px) {
+  .col-md-3.col-custom {
+    width: 25%;
+    float: left;
+  }
+}
+@media (min-width: 581px) and (max-width: 767px) {
+  .col-md-3.col-custom {
+    width: 33.334%;
+    float: left;
+  }
+}
+@media (min-width: 401px) and (max-width: 580px) {
+  .col-md-3.col-custom {
+    width: 50%;
+    float: left;
+  }
+}
+@media (max-width: 400px) {
+  .col-md-3.col-custom {
+    width: 100%;
+  }
+}
