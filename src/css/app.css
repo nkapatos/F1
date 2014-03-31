@@ -99,15 +99,65 @@ body {
 .constructor-nationality img {
   width: 30px;
 }
+.standings .drivers-icon {
+  background: url("../img/web/drivers.png") no-repeat center 0;
+}
+.standings .constructors-icon {
+  background: url("../img/web/drivers.png") no-repeat center 0;
+}
+.standings .icon {
+  float: left;
+  text-align: center;
+  height: 60px;
+  width: 80px;
+  line-height: 120px;
+  color: #fff;
+}
+.driver-name {
+  font-size: 1.3em;
+  line-height: 2em;
+}
+.driver-points {
+  float: left;
+}
+.driver-wins {
+  float: right;
+}
+.driver-team {
+  clear: both;
+}
+.nutag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  border-style: solid;
+  border-width: 0 80px 80px 0;
+  border-color: transparent rgba(51,51,51,0.8) transparent transparent;
+  line-height: 0px;
+  _border-color: #000 #e3df00 #000 #000;
+}
+span.stand {
+  text-align: right;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  right: 8px;
+  top: 0;
+  line-height: 49px;
+  color: #000;
+  font-size: 24px;
+}
 /*radial-gradient(ellipse farthest-side at 10% 0 , rgba(102, 105, 104, 0.9), rgba(93, 112, 119, 0.89), rgba(160, 174, 150, 0.9)) repeat scroll 0 0%, url("../img/bgnoise_lg_dark.png") repeat scroll 0 0 rgba(0, 0, 0, 0)*/
 /*carbon_pattern*/
 /* Transitions
 ================================== */
 .row div {
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-out;
+  -moz-transition: all 0.4s ease-out;
+  -o-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
 }
 /* Media Queries
 ================================== */

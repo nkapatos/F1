@@ -1,10 +1,39 @@
-<div class="selection-info"></div>
+<div class="selection-info col-md-12">
+  <div class="widget">
+      <div class="row">
+        <div class="col-md-5 top-two-drivers">
+          <h4>Top 2 drivers</h4>
+          <ul class="list-unstyled">
+            <li ng-repeat="topDriver in topTwoDrivers">
+              <span class="driverName">{{topDriver.Driver.givenName}} {{topDriver.Driver.familyName}}</span>
+              <span class="driverPoints"> with {{topDriver.points}} points </span>
+              <span class="driverWins">and {{topDriver.wins}} wins</span>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-5 top-two-constructors">
+        <h4>Top 2 constructors</h4>
+          <ul class="list-unstyled">
+            <li ng-repeat="topConstructor in topTwoConstructors">
+              <span class="constructorName">{{topConstructor.Constructor.name}}</span>
+              <span class="constructorPoints"> with {{topConstructor.points}} points </span>
+              <span class="constructorWins">and {{topConstructor.wins}} wins</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <div class="season-info" style="position: absolute; right: 15px; top: 8px;">
+      <h2>{{currentYear}}</h2>
+      <h3>season</h3>
+    </div>
+  </div>
+</div>
 
-<div class="col-md-4" ng-repeat="driver in DriversList">
-  <div class="widget clearfix">
+<div class="col-md-3 col-custom" ng-repeat="driver in DriversList">
+  <div class="widget">
     <a href="#/info/current/driver/{{driver.driverId}}">
-      <div class="col-md-4">photo here</div>
-      <div class="col-md-8">
+      <div class="driver-photo"><img ng-src="img/drivers/{{driver.driverId}}.jpg" alt="{{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}" class="img-responsive"></div>
+      <div>
         <div class="drivers-name">Name : {{driver.givenName}} {{driver.familyName}}</div>
         <div class="driver-nationality">Nationality : {{driver.nationality}}</div>
         <div class="driver-birth">Date of Birth : {{driver.dateOfBirth}}</div>
