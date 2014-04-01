@@ -1,7 +1,8 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('F1Feed', [
+angular.module('F1Feed',
+[
   'ngRoute',
   'F1Feed.controllers',
   'F1Feed.services',

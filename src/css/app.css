@@ -12,6 +12,10 @@ body {
 a {
   color: #9bd0f6;
   text-decoration: none;
+  -webkit-transition: color 0.4s ease-out;
+  -moz-transition: color 0.4s ease-out;
+  -o-transition: color 0.4s ease-out;
+  transition: color 0.4s ease-out;
 }
 a:hover,
 a:focus {
@@ -37,7 +41,7 @@ a:focus {
   padding: 10px 12px;
   color: #f8f8f8;
   background: rgba(81,81,81,0.4);
-  margin-top: 15px;
+  margin: 15px 0;
   position: relative;
 }
 /* Navigation
@@ -158,12 +162,21 @@ span.standing {
 /*carbon_pattern*/
 /* Transitions
 ================================== */
-.row div {
+/*.row div
   -webkit-transition: all 0.4s ease-out;
   -moz-transition: all 0.4s ease-out;
   -o-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-}
+  transition: all 0.4s ease-out;*/
+/* Angular Animations */
+/*.ng-cu-animate
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  &.ng-enter-active
+    opacity 1
+  &.ng-leave-active, &.ng-move-active
+    opacity 0*/
 /* Media Queries
 ================================== */
 /* Large desktop */
