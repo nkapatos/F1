@@ -1,8 +1,8 @@
 <div class="selection-info col-md-12 standings">
   <div class="widget">
       <div class="row">
-        <a href="#" class="driverStandingsLink drivers-icon icon">Drivers</a>
-        <a href="#" class="constructorStandingsLink constructors-icon icon">Constructors</a>
+        <a href="#/standings/current/driver" class="driverStandingsLink drivers-icon icon">Drivers</a>
+        <a href="#standings/current/constructor" class="constructorStandingsLink constructors-icon icon">Constructors</a>
       </div>
     <div class="season-info" style="position: absolute; right: 15px; top: 8px;">
       <h2>{{currentYear}}</h2>
@@ -13,12 +13,13 @@
 
 <div class="col-md-3 col-custom" ng-repeat="driver in StandingsList">
   <div class="widget">
-    <div class="driver-photo"><img ng-src="img/drivers/{{driver.Driver.driverId}}.jpg" alt="{{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}" class="img-responsive"><div class="nutag"></div><span class="stand">{{$index + 1}}</span></div>
-    <div class="driver-name">{{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}</div><!-- driver first and last name -->
+    <div class="driver-photo"><img ng-src="img/drivers/{{driver.Driver.driverId}}.jpg" alt="{{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}" class="img-responsive">
+    <div class="driver-name"><a href="#">{{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}</a></div><!-- driver first and last name -->
     <div>
       <div class="driver-points">Points : {{driver.points}}</div>
       <div class="driver-wins">Wins : {{driver.wins}}</div>
-      <div class="driver-team">{{driver.Constructors[0].name}}</div>
+      <div class="driver-team"><a href="#">{{driver.Constructors[0].name}}</a></div>
+      <span class="standing">{{$index + 1}}</span>
     </div>
   </div>
 </div>

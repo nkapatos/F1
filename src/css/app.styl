@@ -11,6 +11,19 @@ html, body
 =============*/
 /* IE9 SVG, needs conditional override of 'filter' to 'none' */
 
+/* General */
+a
+  color #9bd0f6
+  text-decoration none
+
+a:hover, a:focus
+  color #54aff0
+  text-decoration underline
+
+a:focus
+  outline thin dotted
+  outline 5px auto -webkit-focus-ring-color
+  outline-offset -2px
 
 /* Widgets (All view blocks)
 ==================================== */
@@ -99,7 +112,7 @@ html, body
   .drivers-icon
     background url(../img/web/drivers.png) no-repeat center 0
   .constructors-icon
-    background url(../img/web/drivers.png) no-repeat center 0
+    background url(../img/web/constructors.png) no-repeat center 0
   .icon
     float left
     text-align center
@@ -114,6 +127,7 @@ html, body
 
 .driver-points
   float left
+  color #56bc76
 
 .driver-wins
   float right
@@ -121,29 +135,17 @@ html, body
 .driver-team
   clear both
 
-.nutag
+span.standing
   position absolute
-  top 0
-  right 0
-  width 80px
-  height 80px
-  border-style solid
-  border-width 0 80px 80px 0
-  border-color transparent rgba(51,51,51,0.8) transparent transparent
-  line-height 0px
-  _border-color #000000 #E3DF00 #000000 #000000
-  // _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
-
-span.stand
-  text-align right
-  width 80px
-  height 80px
-  position absolute
-  right 8px
-  top 0
-  line-height 49px
-  color #000
-  font-size 24px
+  bottom 10px
+  display block
+  width 94%
+  text-align center
+  font-size 3.6em
+  line-height 40px
+  color rgba(160,174,150,0.2)
+  letter-spacing -4px
+  z-index -1
 
 /*radial-gradient(ellipse farthest-side at 10% 0 , rgba(102, 105, 104, 0.9), rgba(93, 112, 119, 0.89), rgba(160, 174, 150, 0.9)) repeat scroll 0 0%, url("../img/bgnoise_lg_dark.png") repeat scroll 0 0 rgba(0, 0, 0, 0)*/
 /*carbon_pattern*/
