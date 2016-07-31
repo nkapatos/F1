@@ -1,6 +1,6 @@
 {
   "name": "F1",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Formula 1 History data feed from egstar & live timing data from formula1.com feed",
   "main": "index.js",
   "directories": {
