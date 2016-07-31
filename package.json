@@ -20,6 +20,9 @@
     "AngularJS",
     "SPA"
   ],
+"scripts": {
+    "release": "standard-version"
+  },
   "author": "Nikos Kapatos",
   "license": "MIT",
   "bugs": {
