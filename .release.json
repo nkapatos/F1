@@ -35,7 +35,7 @@
         "forcePublishSourceRepo": false
     },
     "github": {
-        "release": false,
+        "release": true,
         "releaseName": "Release %s",
         "tokenRef": "GITHUB_TOKEN"
     }
