@@ -6,6 +6,11 @@
   "directories": {
     "test": "test"
   },
+"config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/PixelVibe/F1"
@@ -23,21 +28,22 @@
   "homepage": "https://github.com/PixelVibe/F1",
   "devDependencies": {
     "grunt": "^0.4.4",
-    "grunt-processhtml": "^0.3.0",
-    "phantomjs": "~1.9",
-    "karma": "~0.12",
-    "karma-junit-reporter": "~0.2",
-    "karma-jasmine": "~0.1",
-    "protractor": "~0.20.1",
-    "grunt-gh-pages": "^0.9.1",
-    "grunt-contrib-jshint": "^0.9.2",
-    "grunt-contrib-stylus": "^0.13.2",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-readme-generator": "^0.3.41",
-    "load-grunt-tasks": "^0.4.0",
-    "grunt-contrib-uglify": "^0.4.0",
     "grunt-contrib-concat": "^0.3.0",
     "grunt-contrib-copy": "^0.5.0",
-    "grunt-ngmin": "0.0.3"
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-stylus": "^0.13.2",
+    "grunt-contrib-uglify": "^0.4.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-gh-pages": "^0.9.1",
+    "grunt-ngmin": "0.0.3",
+    "grunt-processhtml": "^0.3.0",
+    "grunt-readme-generator": "^0.3.41",
+    "karma": "~0.12",
+    "karma-jasmine": "~0.1",
+    "karma-junit-reporter": "~0.2",
+    "load-grunt-tasks": "^0.4.0",
+    "phantomjs": "~1.9",
+    "protractor": "~0.20.1",
+    "release-it": "^2.4.0"
   }
 }
