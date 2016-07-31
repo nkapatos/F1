@@ -10,7 +10,7 @@
     "tagName": "v%s",
     "tagAnnotation": "Release v%s",
     "buildCommand": false,
-    "changelogCommand": "./node_modules/.bin/conventional-changelog -p angular",
+    "changelogCommand": "./node_modules/.bin/conventional-changelog -p angular -u",
     "requireCleanWorkingDir": false,
     "src": {
         "pushRepo": null,
