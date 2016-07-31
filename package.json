@@ -44,6 +44,7 @@
     "load-grunt-tasks": "^0.4.0",
     "phantomjs": "~1.9",
     "protractor": "~0.20.1",
-    "release-it": "^2.4.0"
+    "release-it": "^2.4.0",
+    "standard-version": "^2.4.0"
   }
 }
