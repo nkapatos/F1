@@ -7,7 +7,7 @@
     "increment": "patch",
     "prereleaseId": null,
     "commitMessage": "Release v%s",
-    "tagName": "%s",
+    "tagName": "v%s",
     "tagAnnotation": "Release v%s",
     "buildCommand": false,
     "changelogCommand": "npm run changelog",

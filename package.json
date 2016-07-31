@@ -1,6 +1,6 @@
 {
   "name": "F1",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Formula 1 History data feed from egstar & live timing data from formula1.com feed",
   "main": "index.js",
   "directories": {
@@ -21,7 +21,8 @@
     "SPA"
   ],
   "scripts": {
-    "changelog": "conventional-changelog"
+    "changelog": "conventional-changelog -p angular",
+    "release:major": "release-it major"
   },
   "author": "Nikos Kapatos",
   "license": "MIT",
