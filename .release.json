@@ -10,12 +10,12 @@
     "tagName": "v%s",
     "tagAnnotation": "Release v%s",
     "buildCommand": false,
-    "changelogCommand": "./node_modules/.bin/conventional-changelog -p angular -u",
+    "changelogCommand": "./node_modules/.bin/conventional-changelog  -u -p release",
     "requireCleanWorkingDir": false,
     "src": {
         "pushRepo": null,
         "beforeStartCommand": false,
-        "beforeStageCommand": false,
+        "beforeStageCommand": "npm run changelog",
         "afterReleaseCommand": false
     },
     "dist": {
