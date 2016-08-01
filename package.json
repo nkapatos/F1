@@ -21,7 +21,7 @@
     "SPA"
   ],
   "scripts": {
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "release": "release-it patch",
     "release:patch": "release-it patch",
     "release:minor": "release-it minor",
